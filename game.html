@@ -1,0 +1,154 @@
+<html>
+<head>
+	<title>Game</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script src="https://unpkg.com/vue@2.3.4"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="offset-4"></div>
+			<div id="game" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<div class="card">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<div class="card-block">
+								<h3 class="card-title">金錢: ${{ point }}</h3 >
+								<p class="card-text">
+									<span>每秒獲得金錢: ${{ pps }}</span><br>
+									<span>每次攻擊金錢: ${{ multipler[0].count }}</span>
+								</p>
+								<button v-on:click="attack" class="btn btn-primary">攻擊!</button>
+							</div>
+						</li>
+						<multipler v-for="(mpr,idx) in multipler" v-bind:mpr="mpr" v-bind:idx="idx" v-bind:key="mpr.name"></multipler>
+					</ul>
+				</div>
+				<button v-on:click="rst" class="btn btn-danger">重置</button>
+			</div>
+		</div>
+	</div>
+	<script>
+		Vue.component('multipler',{
+			props: ['mpr','idx'],
+			template: '\
+				<li class="list-group-item">\
+					<div class="card-block">\
+						<p>\
+							<h3 class="card-title">{{ mpr.name }}</h3>\
+						</p>\
+						<div class="card-text">\
+							<span>{{ mpr.des }}</span><br>\
+							<span>數量: {{ mpr.count }}</span>\
+						</div>\
+						<button v-on:click="buy(idx)" class="btn btn-default">購買( ${{ mpr.price }} )</button>\
+					</div>\
+				</li>\
+			',
+			methods: {
+				buy: function(idx){
+					if(this.$parent.point>=this.mpr.price){
+						this.$parent.point-=this.mpr.price;
+						this.mpr.count++;
+						this.mpr.price+=this.mpr.pml;
+						if(idx>0){
+							this.$parent.pps+=this.mpr.ml;
+						}
+					}
+				}
+			}
+		});
+		var mprs=[
+					{
+						name: '武器寶石鑲嵌',
+						des: '1顆攻擊力+1',
+						count: 1,
+						price: 10,
+						ml: 1,
+						pml: 1
+					},
+					{
+						name: '隊友：姆咪',
+						des: '姆咪姆咪姆姆咪，每秒攻擊一次',
+						count: 0,
+						price: 50,
+						ml: 1,
+						pml: 2
+					},
+					{
+						name: '隊友：茶渡',
+						des: '兩分鐘便可結束，每秒攻擊7次',
+						count: 0,
+						price: 250,
+						ml: 7,
+						pml: 10
+					},
+					{
+						name: '隊友：桐谷和人',
+						des: '快、還要再快，每秒攻擊16次',
+						count: 0,
+						price: 500,
+						ml: 16,
+						pml: 50
+					}
+				];
+		var gx={};
+		if(localStorage.game){
+			try{
+				gx=JSON.parse(localStorage.game);
+				console.log(gx);
+				if(mprs.length>gx.multipler.length){
+					for(var i=gx.multipler.length;i<mprs.length;i++){
+						gx.multipler.push(mprs[i]);
+					}
+				}
+			}catch(e){}
+		}
+		var game=new Vue({
+			el: '#game',
+			data: {
+				reset: false,
+				point: gx.point||0,
+				pps: gx.pps||0,
+				multipler: gx.multipler||mprs
+			},
+			methods: {
+				attack: function(){
+					this.point+=this.multipler[0].ml*this.multipler[0].count;
+				},
+				updater: function(){
+					var self=this;
+					setInterval(function(){
+						for(var i=1;i<self.multipler.length;i++){
+							self.point+=self.multipler[i].ml*self.multipler[i].count;
+						}
+					},1000);
+				},
+				rst: function(){
+					if(!confirm('確定?'))return;
+					this.reset=true;
+					location.href='';
+				} 
+			},
+			created: function(){
+				this.updater();
+			}
+		});
+		window.onbeforeunload=function(){
+			if(game.reset){
+				localStorage.clear();
+			}
+			else{
+				var g={};
+				g.point=game.point;
+				g.pps=game.pps;
+				g.multipler=game.multipler;
+				localStorage.game=JSON.stringify(g);
+			}
+			return null;
+		};
+	</script>
+</body>
+</html>
