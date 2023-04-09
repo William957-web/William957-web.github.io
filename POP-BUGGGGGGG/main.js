@@ -22,7 +22,7 @@ function saveScore(popCount) {
 function loadScore() {
   popCount = localStorage.getItem("count");
   localStorage.getItem("count") === null
-    ? (score.innerText = "Press P and record your score!")
+    ? (score.innerText = "Press P and S to record your score!")
     : (score.innerText = `Your POP Count : ${localStorage.getItem("count")}`);
 }
 
