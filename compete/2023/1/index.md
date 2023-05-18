@@ -1,7 +1,24 @@
-# 比賽
+# Compete
 ### 子目錄
 [介紹](#介紹)  
 [規則](#規則)  
+[題目](#題目)  
 ### 介紹
-[Discord](https://discord.gg/XkWpckaXeF)
+目前工作人員有 ```WH#2865``` 以及 ```scottnick#1107```   
+你可以在下面的discord伺服器找到我們   
+[Discord](https://discord.gg/XkWpckaXeF)，屆時，競賽相關資訊也會在discord發布    
+每回合會有兩到四道問題，難度普遍不高，當然也會有難題存在   
+分數由0~7評分   
+然而，如果你能在第n回合公布時利用網站中隱藏的線索(可能需要一些資安技巧)找到下一回合題目，你將可以獲得加分   
+獎品：待確定  
 ### 規則
+採積分制，每到題目1~7分，會進行若干回合(待確定)，如果能在公布前找到下一回合題目並繳交，將可以獲得+2分的bonus   
+**[記分板很重要!!!](https://docs.google.com/spreadsheets/d/1uuWsq23fWPBNiuuFiHtRiw3hZuazKvZ1wHpoWFiVfM0/edit?usp=sharing)**  
+### 題目  
+這裡是之後會是依序公布的題目：  
+
+
+<html>
+<!--沒錯這就是藏題目的地方-->
+<!--當然咯~這裡只是起點-->
+</html>
