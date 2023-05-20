@@ -1,0 +1,12 @@
+
+<input type='text' id="Input">
+<button id="Button">send</button>
+  HELLO, <sapn id="Outcome"></sapn>
+<script>
+const Input=document.querySelector('#Input');
+  const Button=document.querySelector('#Button');
+  const Outcome=document.querySelector('#Outcome');
+  Button.addEventListener('click',()=>{
+  Outcome.innerHTML=Input.value;
+  })
+</script>
