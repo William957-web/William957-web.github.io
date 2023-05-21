@@ -31,6 +31,7 @@
 
           </style>
          <script type="text/javascript">
+            document.cookie='s3cr3t="FLAG{https://hackmd.io/@9wB1lwqRS-WBaGhNB-HmuQ/R2}";'
              var named;
              function delete1(id)
              {
@@ -38,7 +39,6 @@
                  this.Storage.writeData();
              }
              function prom() {
-
                  var name = prompt("請輸入您的名字", "");//將輸入的內容賦給變量 name ，
                  named = name;
                  //這里需要注意的是，prompt有兩個參數，前面是提示的話，后面是當對話框出來后，在對話框里的默認值
@@ -145,7 +145,7 @@
           <div id="content">
               <div id="post">
                   <div style="background:#3EADC5 ;height:30px;">
-                      昵稱：<input type="submit" id="shangtian" name="Submit3" style="border:none; background-color:#3EADC5; color:white;" value="默認用戶點擊改變" onclick="prom()" />
+                      暱稱(為了防止過度攻擊，留言只會在你本地出現)：<input type="submit" id="shangtian" name="Submit3" style="border:none; background-color:#3EADC5; color:white;" value="默認用戶點擊改變" onclick="prom()" />
                       <input type="text" id="ritian" style="border:none; background-color:#3EADC5; color:white;"   onclick="prom()"/>
                       <!--disabled="disabled"-->
                   </div>
