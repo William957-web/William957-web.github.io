@@ -1,0 +1,229 @@
+/*  
+Template Name: Black 'n White
+Version: 2.0 (Pure CSS version)
+Author:webmasterneo, MLP Design
+Author URI: http://www.mlpdesign.net/
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+html, body {
+  background-color: #ddd;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+a:link, a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none; 
+  color:#777; 
+  border-bottom:1px dotted;
+}
+
+blockquote {
+  width: 70%;
+  margin: 5px auto;
+  padding: 10px 40px;
+  position: relative;
+}
+
+blockquote p {
+  color: #888;
+}
+
+blockquote:before {
+  display: block;
+  content: "\201c";
+  font: bold 100px "Times New Roman", serif;
+  position: absolute;
+  left: -20px;
+  top: -10px;
+  color: #888;
+}
+
+p {
+  color: #444;
+}
+
+.right {text-align:right; }
+
+.shell span {
+  display: table-cell;
+  width: 50%;
+  margin: 0;
+}
+
+.shell {
+  display: table;
+  font-size: 12px;
+  }
+
+#header {
+  background-color: #fff;
+  border-top: 1px #ccc solid;
+  border-bottom: 1px #ccc solid;
+  padding: 1px 0;
+  width: 100%;
+  margin: 0;
+  margin: 1px 0;
+}
+
+#header .shell {
+  text-transform: uppercase;  
+  width: 90%;
+  margin: 0 5%;
+
+  }
+
+#menu {
+  width:100%;
+  min-height:35px;
+  background-color: #000;
+}
+
+nav {
+  display: table;
+  table-layout: fixed;
+  width: 93%;
+  margin: 0 auto;
+  border-right: 1px solid #777;
+
+}
+
+ul#topnav  {
+  display: table-row;
+  padding: 0;
+  overflow: hidden;
+  position:relative;
+  bottom:0;
+}
+
+ul#topnav li {
+  list-style-type: none;
+  display: table-cell;
+  text-align:center;
+  vertical-align:middle;
+  border-left: 1px solid #777;
+}
+
+
+ul#topnav li a {
+  background-color: #000;
+  color: #fff;
+  display:block;
+  padding:5px 0px 10px;
+  margin-top: 1px;
+}
+
+ul#topnav li a:hover {
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  border: 0;
+}
+
+#content {
+  width:90%;
+  background-color:#fff;
+  color:inherit;
+  border: 1px #777 solid;
+  padding:20px;
+  margin:auto; 
+}
+
+.pageitem {
+  background-color:#fff; 
+  color:inherit; 
+  text-align:justify; 
+  border:#ccc 1px solid;
+  padding: 20px;
+  margin:20px auto;
+}
+
+.pageitem h2 {
+  margin-bottom: 0;}
+
+.pageitem h3 {
+  text-transform: uppercase;
+  border-bottom: #ccc 1px dashed;
+  padding-bottom: 5px;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 1%;}
+  
+.pageitem ul.unordered {
+list-style: none;
+}
+
+.pageitem ul.unordered li:before {
+font-family: FontAwesome;
+content: "\f178";
+ margin:0 5px 0 -15px;
+}
+  
+ul.social {
+  text-align:center !important;
+  margin: 0 auto;
+  padding: 0;
+}
+  
+ul.social li {
+  display: inline-block;
+  width: 20%;
+  text-align: center !important;
+  padding: 20px 5px;
+  margin: 0;
+}
+
+ul.social li:hover {
+  text-decoration: none;
+  color: #888;
+}
+
+#footer .shell {
+  width: 100%;
+  margin: 0;
+  }
+
+#show-menu  {display:none;}
+.open, .close { background-color:inherit; color:#fff; text-align:right; font-weight:normal; font-size:1.5em; padding: 0; position:absolute; top:14%; left:5%; display:none; }
+
+
+/* start make items responsive */
+@media screen and (max-width : 800px){
+
+
+/* menu */
+ul#topnav {display:none;}
+.hide, .open { display:block;}
+
+
+#show-menu:checked ~ .open {display:none;}
+#show-menu:checked ~ .close {font-size:1.6em; display:block;}
+#show-menu:checked ~ ul#topnav { display: block; position: absolute; top:100%; right:0%; width:100%; margin:0; margin-bottom:1%; overflow:visible; z-index: 100;}
+
+#menu { position:relative; z-index:100; top:0; left:0;}
+ul#topnav li { display: block; text-align:center; margin:0; background-color:#000; padding:1% 0;}
+
+ul#topnav li a { display: block; padding-right:0%; padding-bottom:5px; text-decoration:none; border: 0;}
+
+
+/* other items */
+.pageitem h2, .pageitem h3 {text-align:center;}
+.pageitem p { padding:0; line-height:150%; font-size:99%;}
+
+
+
+.shell .left, #footer .shell .right { text-align:center !important;}
+.shell span { width: 100%; display: inline-block; padding-bottom: 10px; text-align:center !important;}
+ul.social li { width: 40%; }
+}
+/* end make items responsive */
