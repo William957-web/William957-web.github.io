@@ -118,5 +118,18 @@
         }
       });
     </script>
+    <script>
+    var url;
+    function UrlExists(url) {
+        var http = new XMLHttpRequest();
+        http.open('HEAD', url, false);
+        http.send();
+        if (http.status != 404)
+            return true;
+        else
+            return false;
+    }
+    if(UrlExists('https://icedctf.github.io/')) location.href='https://icedctf.github.io/';
+</script>
   </body>
 </html>
