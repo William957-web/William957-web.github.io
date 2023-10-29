@@ -1,6 +1,9 @@
-<h1>Hello, <span><sapn id="name"></sapn></h1>
+<h1>Hello, <span><sapn id="Outcome"></sapn></h1>
 <script>
   var getUrlString = location.href;
   var url = new URL(getUrlString);
-  var name=url.searchParams.get('name');
+  const Outcome=document.querySelector('#Outcome');
+  Button.addEventListener('click',()=>{
+  Outcome.innerHTML=url.searchParams.get('name');
+  })
 </script>
