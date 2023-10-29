@@ -3,7 +3,5 @@
   var getUrlString = location.href;
   var url = new URL(getUrlString);
   const Outcome=document.querySelector('#Outcome');
-  Button.addEventListener('click',()=>{
   Outcome.innerHTML=url.searchParams.get('name');
-  })
 </script>
