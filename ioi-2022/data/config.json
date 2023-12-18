@@ -1,0 +1,24 @@
+{
+  "problems": [
+    "fish",
+    "prison",
+    "towers",
+    "circuit",
+    "insects",
+    "islands"
+  ],
+  "days": [
+    1660111200,
+    1660284000
+  ],
+  "unofficials": [
+    "IDN5",
+    "IDN6",
+    "IDN7",
+    "IDN8",
+    "JOR1",
+    "ECU1",
+    "TKM3",
+    "VEN4"
+  ]
+}
