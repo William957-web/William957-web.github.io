@@ -4,12 +4,7 @@
     <title>ICED CSP</title>
 </head>
 <body>
-<h1>Hello, <span><sapn id="Outcome"></sapn></h1>
+<h1>Hello, <sapn id="Outcome"></sapn></h1>
 <img src='titan.jfif'>
-<script>
-  var getUrlString = location.href;
-  var url = new URL(getUrlString);
-  const Outcome=document.querySelector('#Outcome');
-  Outcome.innerHTML=url.searchParams.get('name');
-</script>
+<script src='xss_query.js'></script>
 </body>
